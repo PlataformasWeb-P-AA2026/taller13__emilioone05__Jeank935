@@ -2,9 +2,17 @@
     Manejo de urls para la aplicación
     administrativo
 """
-from django.urls import path
+from django.urls import path, include
 # se importa las vistas de la aplicación
-from . import views
+from roder import views
+from rest_framework import routers
+# Estos viewset estan conctaods a los serializers que los serializers estan al modelo
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'estudiantes', views.EstudianteViewSet)
+router.register(r'numerosts', views.NumeroTelefonicoViewSet)
+router.register(r'direcciones', views.DireccionViewSet)
 
 
 urlpatterns = [
@@ -27,4 +35,8 @@ urlpatterns = [
             name='crear_numero_telefonico_estudiante'),
         path('saliendo/logout/', views.logout_view, name="logout_view"),
         path('entrando/login/', views.ingreso, name="login"),
+        
+        path('api/', include(router.urls)),
+        path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
  ]
