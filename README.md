@@ -51,7 +51,7 @@ Nota: Un departamento pertenece a un edificio
 
 ### Tecnologías y herramientas:
 
-- Base de datos Sqlite
+- Base de datos Sqlite / Postgres (agregar en el readme, evidencias de las tablas en ambas BD)
 - Lenguaje Python
 - Framework Django
 - Django-Rest
