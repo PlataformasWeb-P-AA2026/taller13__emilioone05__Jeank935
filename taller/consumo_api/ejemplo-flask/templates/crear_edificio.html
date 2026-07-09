@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Crear edificio</title>
+  </head>
+  <body>
+    <p>
+      <a href="/">Inicio</a> |
+      <a href="/los/edificios">Ver edificios</a>
+    </p>
+    <h5>Crear edificio</h5>
+
+    <form method="post">
+      <p>
+        <label>Nombre</label><br />
+        <input type="text" name="nombre" required />
+      </p>
+      <p>
+        <label>Direccion</label><br />
+        <input type="text" name="direccion" required />
+      </p>
+      <p>
+        <label>Ciudad</label><br />
+        <input type="text" name="ciudad" required />
+      </p>
+      <p>
+        <label>Tipo</label><br />
+        <select name="tipo" required>
+          <option value="residencial">Residencial</option>
+          <option value="comercial">Comercial</option>
+        </select>
+      </p>
+      <button type="submit">Guardar</button>
+    </form>
+  </body>
+</html>
