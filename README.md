@@ -1,5 +1,5 @@
-# taller13
-
+# taller13  
+# Integrantes: Emilio Peña y Jean Cuenca  
 ## Creación de Servicio Web y Consumo vía Flask
 
 ### Revisar
