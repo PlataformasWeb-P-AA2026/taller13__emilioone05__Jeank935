@@ -24,17 +24,13 @@ def obtener_json(respuesta):
     return json.loads(respuesta.content)
 
 
+def mostrar_error_api(error):
+    return "Error %s: %s" % (error["estado"], error["detalle"])
+
+
 @app.route("/")
 def hello_world():
-    return """
-    <h3>Consumo API Django</h3>
-    <ul>
-      <li><a href="/los/edificios">Listar edificios</a></li>
-      <li><a href="/los/departamentos">Listar departamentos</a></li>
-      <li><a href="/crear/edificio">Crear edificio</a></li>
-      <li><a href="/crear/departamento">Crear departamento</a></li>
-    </ul>
-    """
+    return "<p>Hello, World!</p>"
 
 
 @app.route("/los/edificios")
@@ -46,7 +42,7 @@ def los_edificios():
 
     respuesta = obtener_json(r)
     if "error" in respuesta:
-        return render_template("error_api.html", error=respuesta)
+        return mostrar_error_api(respuesta)
     edificios = respuesta['results']
     numero_edificios = respuesta['count']
     return render_template("losedificios.html", edificios=edificios,
@@ -60,7 +56,7 @@ def los_departamentos():
     r = requests.get(f"{API_URL}/departamentos/", headers=headers)
     respuesta = obtener_json(r)
     if "error" in respuesta:
-        return render_template("error_api.html", error=respuesta)
+        return mostrar_error_api(respuesta)
     datos = respuesta['results']
     numero = respuesta['count']
     return render_template("losdepartamentos.html", datos=datos,
@@ -79,7 +75,7 @@ def crear_edificio():
         r = requests.post(f"{API_URL}/edificios/", headers=headers, json=datos)
         respuesta = obtener_json(r)
         if "error" in respuesta:
-            return render_template("error_api.html", error=respuesta)
+            return mostrar_error_api(respuesta)
         return redirect(url_for("los_edificios"))
 
     return render_template("crear_edificio.html")
@@ -90,7 +86,7 @@ def crear_departamento():
     edificios_r = requests.get(f"{API_URL}/edificios/", headers=headers)
     edificios_respuesta = obtener_json(edificios_r)
     if "error" in edificios_respuesta:
-        return render_template("error_api.html", error=edificios_respuesta)
+        return mostrar_error_api(edificios_respuesta)
 
     if request.method == "POST":
         datos = {
@@ -102,7 +98,7 @@ def crear_departamento():
         r = requests.post(f"{API_URL}/departamentos/", headers=headers, json=datos)
         respuesta = obtener_json(r)
         if "error" in respuesta:
-            return render_template("error_api.html", error=respuesta)
+            return mostrar_error_api(respuesta)
         return redirect(url_for("los_departamentos"))
 
     return render_template(
