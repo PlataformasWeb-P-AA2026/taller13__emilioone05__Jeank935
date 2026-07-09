@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}UTPL Rider{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'rider/styles.css' %}">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">UTPL</div>
+    <nav class="menu">
+      <a href="{% url 'rider:index' %}">Inicio</a>
+      <a href="{% url 'rider:edificios_list' %}">Edificios</a>
+      <a href="{% url 'rider:departamentos_list' %}">Departamentos</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>© 2026 UTPL Future. Taller 13 - Edificios y Departamentos.</p>
+  </footer>
+
+</body>
+</html>
