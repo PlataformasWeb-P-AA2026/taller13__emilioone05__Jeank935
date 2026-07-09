@@ -6,7 +6,7 @@ from config import usuario, clave
 app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'una-clave-secreta-000001'
 
-token = '5e1fc0622ce6e6d5f6e422afef07bb0153a5ea12'
+token = 'e39553b56e186d1c149050b7380dba7a71eee1d9'
 headers = {
         "Authorization": f"Token {token}",
         "Content-Type": "application/json"
