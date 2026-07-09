@@ -55,8 +55,9 @@ Nota: Un departamento pertenece a un edificio
 
 SQLITE
   
-<img width="876" height="315" alt="image" src="https://github.com/user-attachments/assets/70d29e76-c189-4c39-8acc-b9c508a96db8" />
-  
+<img width="876" height="315" alt="image" src="https://github.com/user-attachments/assets/70d29e76-c189-4c39-8acc-b9c508a96db8" />  
+  <img width="1070" height="347" alt="image" src="https://github.com/user-attachments/assets/3f9637e7-fa14-4275-b8ec-480a3bde79cd" />  
+
 - Lenguaje Python
 - Framework Django
 - Django-Rest
